@@ -5,11 +5,12 @@ import TVScreen from "../screens/TV";
 import SearchScreen from "../screens/Search";
 import { BG_COLOR } from "../constants/Colors";
 import TabBarIcon from "../constants/TabBarIcon";
+import { createStack } from "./config";
 
 const TabNavigation = createBottomTabNavigator(
   {
     Movie: {
-      screen: MovieScreen,
+      screen: createStack(MovieScreen, "Movies"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon focused={focused} name={"film"} />
@@ -17,7 +18,7 @@ const TabNavigation = createBottomTabNavigator(
       }
     },
     TV: {
-      screen: TVScreen,
+      screen: createStack(TVScreen, "TV"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon focused={focused} name={"tv"} />
@@ -25,7 +26,7 @@ const TabNavigation = createBottomTabNavigator(
       }
     },
     Search: {
-      screen: SearchScreen,
+      screen: createStack(SearchScreen, "Search"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon focused={focused} name={"search"} />
