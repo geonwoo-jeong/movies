@@ -1,6 +1,6 @@
 import React from "react";
 import { createAppContainer, createBottomTabNavigator } from "react-navigation";
-import MovieScreen from "../screens/Movies";
+import MovieScreen from "../screens/Movies/MoviesPresenter";
 import TVScreen from "../screens/TV";
 import SearchScreen from "../screens/Search";
 import { BG_COLOR } from "../constants/Colors";
