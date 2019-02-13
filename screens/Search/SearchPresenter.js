@@ -3,11 +3,11 @@ import { Text } from "react-native";
 import PropTypes from "prop-types";
 import Loader from "../../components/Loader";
 
-const MoviesPresenter = ({ loading }) =>
+const SearchPresenter = ({ loading }) =>
   loading ? <Loader /> : <Text>Movies</Text>;
 
-MoviesPresenter.propTypes = {
+SearchPresenter.propTypes = {
   loading: PropTypes.bool.isRequired
 };
 
-export default MoviesPresenter;
+export default SearchPresenter;

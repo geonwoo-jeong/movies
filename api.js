@@ -1,9 +1,10 @@
 import axios from "axios";
+import { API_KEY, API_URL } from "./constants/Environment";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_MOVIE_URL,
+  baseURL: API_URL,
   params: {
-    api_key: process.env.REACT_APP_MOVIE_API_KEY,
+    api_key: API_KEY,
     language: navigator.language || "ja-JP"
   }
 });

@@ -1,5 +1,3 @@
-// require("dotenv").config();
-
 import React from "react";
 import { AppLoading, Font } from "expo";
 import { StatusBar } from "react-native";
