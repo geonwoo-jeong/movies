@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Ionicons } from "@expo/vector-icons";
-import { ACTIVE_COLOR, INACTIVE_COLOR } from "./Colors";
+import { ACTIVE_COLOR, INACTIVE_COLOR } from "../constants/Colors";
 import { Platform } from "react-native";
 
 const platform = Platform.OS === "ios" ? "ios-" : "md-";
