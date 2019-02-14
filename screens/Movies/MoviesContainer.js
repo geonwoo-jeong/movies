@@ -12,20 +12,32 @@ export default class extends React.Component {
   };
 
   async componentDidMount() {
+    let upcoming, popluar, nowPlaying, error;
     try {
-      const upcoming = await movies.getUpcoming();
-      const popular = await movies.getPopular();
-      const nowPlaying = await movies.getNowPlaying();
+      ({
+        data: { results: upcoming }
+      } = await movies.getUpcoming());
+      ({
+        data: { results: popular }
+      } = await movies.getPopular());
+      ({
+        data: { results: nowPlaying }
+      } = await movies.getNowPlaying());
+
+      this.setState({
+        upcoming,
+        popluar,
+        nowPlaying
+      });
     } catch (error) {
-      console.log(error);
-      this.setState({ error: "Cant' get Movies" });
+      ({ error: "Cant get Movies" });
     } finally {
-      this.setState({ loading: false });
+      this.setState({ loading: false, error, upcoming, popluar, nowPlaying });
     }
   }
 
   render() {
-    const { loading } = this.state;
-    return <MoviesPresenter loading={loading} />;
+    const { loading, upcoming, popluar, nowPlaying } = this.state;
+    return <MoviesPresenter loading={loading} upcoming={upcoming} />;
   }
 }
