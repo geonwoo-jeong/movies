@@ -30,7 +30,7 @@ export default class extends React.Component {
         nowPlaying
       });
     } catch (error) {
-      ({ error: "Cant get Movies" });
+      error = "Cant get Movies";
     } finally {
       this.setState({ loading: false, error, upcoming, popluar, nowPlaying });
     }
@@ -38,6 +38,13 @@ export default class extends React.Component {
 
   render() {
     const { loading, upcoming, popluar, nowPlaying } = this.state;
-    return <MoviesPresenter loading={loading} upcoming={upcoming} />;
+    return (
+      <MoviesPresenter
+        loading={loading}
+        upcoming={upcoming}
+        popluar={popluar}
+        nowPlaying={nowPlaying}
+      />
+    );
   }
 }
