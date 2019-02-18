@@ -4,7 +4,13 @@ import styled from "styled-components";
 import makePhotoUrl from "../utils/makePhotoUrl";
 import Layout from "../constants/Layout";
 import MoviePoster from "./MoviePoster";
-import { WHITE, GREY_COLOR } from "../constants/Colors";
+import { WHITE, RED } from "../constants/Colors";
+import MovieRating from "./MovieRating";
+import {
+  BIG_FONT_SIZE,
+  THICK_FONT_WEIGHT,
+  DEFAULT_FONT_SIZE
+} from "../constants/Fonts";
 
 const Container = styled.View`
   flex: 1;
@@ -14,7 +20,7 @@ const Container = styled.View`
 const BgImage = styled.Image`
   width: ${Layout.width};
   height: ${Layout.SWIPER_HEIGHT};
-  opacity: 0.5;
+  opacity: 0.3;
   position: absolute;
 `;
 
@@ -23,23 +29,39 @@ const Content = styled.View`
   flex-direction: row;
   align-items: center;
   padding-horizontal: 30px;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 const Column = styled.View`
   width: 60%;
+  align-items: flex-start;
 `;
 
 const Title = styled.Text`
   color: ${WHITE};
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-size: ${BIG_FONT_SIZE};
+  font-weight: ${THICK_FONT_WEIGHT};
 `;
 
 const Overview = styled.Text`
   color: ${WHITE};
-  font-size: 12px;
+  font-size: ${DEFAULT_FONT_SIZE};
+  margin-bottom: 10px;
+`;
+
+const VoteContainer = styled.View`
+  margin: 10px 0;
+`;
+
+const BtnContainer = styled.TouchableOpacity`
+  background-color: ${RED};
+  padding: 5px;
+  border-radius: 2.5px;
+`;
+
+const BtnText = styled.Text`
+  color: ${WHITE};
+  font-size: ${DEFAULT_FONT_SIZE};
 `;
 
 const MovieSlide = ({
@@ -56,9 +78,15 @@ const MovieSlide = ({
       <MoviePoster path={posterPhoto} />
       <Column>
         <Title>{title}</Title>
+        <VoteContainer>
+          <MovieRating votes={voteAvg} inSlide={true} />
+        </VoteContainer>
         <Overview>
           {overview.length > 80 ? `${overview.substring(0, 80)}...` : overview}
         </Overview>
+        <BtnContainer>
+          <BtnText>More Details</BtnText>
+        </BtnContainer>
       </Column>
     </Content>
   </Container>
