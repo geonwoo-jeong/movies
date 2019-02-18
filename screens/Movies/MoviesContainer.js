@@ -23,7 +23,6 @@ export default class extends React.Component {
       ({
         data: { results: nowPlaying }
       } = await movies.getNowPlaying());
-
       this.setState({
         upcoming,
         popluar,

@@ -9,15 +9,15 @@ const Container = styled.ScrollView`
   background-color: ${BG_COLOR};
 `;
 
-const MoviesPresenter = ({ loading, upcoming, popular, nowPlaying }) =>
-  loading ? (
+const MoviesPresenter = ({ loading, upcoming, popular, nowPlaying }) => {
+  return loading ? (
     <Loader />
   ) : (
     <Container>
-      <MovieSlider />
+      <MovieSlider movies={nowPlaying} />
     </Container>
   );
-
+};
 MoviesPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
   upcoming: PropTypes.array,
