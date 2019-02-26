@@ -29,6 +29,7 @@ const MoviesPresenter = ({ loading, upcoming, popular, nowPlaying }) => {
                 posterPhoto={movie.poster_path}
                 title={movie.title}
                 voteAvg={movie.vote_average}
+                overview={movie.overview}
               />
             ))}
         </Section>
@@ -44,6 +45,8 @@ const MoviesPresenter = ({ loading, upcoming, popular, nowPlaying }) => {
                 posterPhoto={movie.poster_path}
                 title={movie.title}
                 voteAvg={movie.vote_average}
+                overview={movie.overview}
+                horizontal={true}
               />
             ))}
         </Section>
