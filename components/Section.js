@@ -20,15 +20,20 @@ const ScrollView = styled.ScrollView`
   padding-left: 20px;
 `;
 
-const Section = ({ title, children }) => (
+const Section = ({ title, children, horizontal = true }) => (
   <Container>
     <Title>{title}</Title>
-    <ScrollView horizontal>{children}</ScrollView>
+    <ScrollView horizontal={horizontal}>{children}</ScrollView>
   </Container>
 );
 
 Section.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.arrayOf(React.PropTypes.node),
+    React.PropTypes.node
+  ]),
+  horizontal: PropTypes.bool
 };
 
 export default Section;
