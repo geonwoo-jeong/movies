@@ -29,9 +29,9 @@ const Section = ({ title, children, horizontal = true }) => (
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.arrayOf(React.PropTypes.node),
-    React.PropTypes.node
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
   ]),
   horizontal: PropTypes.bool
 };

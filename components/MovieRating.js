@@ -24,4 +24,8 @@ MovieRating.propTypes = {
   inSlide: PropTypes.bool.isRequired
 };
 
+MovieRating.defaultProps = {
+  votes: 0
+};
+
 export default MovieRating;

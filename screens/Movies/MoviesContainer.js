@@ -6,13 +6,13 @@ export default class extends React.Component {
   state = {
     loading: true,
     upcoming: null,
-    popluar: null,
+    popular: null,
     nowPlaying: null,
     error: null
   };
 
   async componentDidMount() {
-    let upcoming, popluar, nowPlaying, error;
+    let upcoming, popular, nowPlaying, error;
     try {
       ({
         data: { results: upcoming }
@@ -25,23 +25,23 @@ export default class extends React.Component {
       } = await movies.getNowPlaying());
       this.setState({
         upcoming,
-        popluar,
+        popular,
         nowPlaying
       });
     } catch (error) {
       error = "Cant get Movies";
     } finally {
-      this.setState({ loading: false, error, upcoming, popluar, nowPlaying });
+      this.setState({ loading: false, error, upcoming, popular, nowPlaying });
     }
   }
 
   render() {
-    const { loading, upcoming, popluar, nowPlaying } = this.state;
+    const { loading, upcoming, popular, nowPlaying } = this.state;
     return (
       <MoviesPresenter
         loading={loading}
         upcoming={upcoming}
-        popluar={popluar}
+        popular={popular}
         nowPlaying={nowPlaying}
       />
     );

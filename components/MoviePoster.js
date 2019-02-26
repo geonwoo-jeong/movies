@@ -17,4 +17,8 @@ MoviePoster.propTypes = {
   path: PropTypes.string.isRequired
 };
 
+MoviePoster.defaultProps = {
+  path: ""
+};
+
 export default MoviePoster;
