@@ -35,7 +35,9 @@ const TabNavigation = createBottomTabNavigator(
     }
   },
   {
+    initialRouteName: "Search",
     tabBarOptions: {
+      showLabel: false,
       style: {
         backgroundColor: BG_COLOR
       }
