@@ -2,12 +2,38 @@ import React from "react";
 import { Text } from "react-native";
 import PropTypes from "prop-types";
 import Loader from "../../components/Loader";
+import styled from "styled-components";
+import { BG_COLOR } from "../../constants/Colors";
 
-const SearchPresenter = ({ loading }) =>
-  loading ? <Loader /> : <Text>Movies</Text>;
+const Container = styled.View`
+  background-color: ${BG_COLOR};
+`;
+
+const Input = styled.TextInput``;
+
+const SearchPresenter = ({
+  loading,
+  movieResults,
+  tvResults,
+  searchTerm,
+  handleSearchUpdate
+}) => (
+  <Container>
+    <Input
+      onChangeText={handleSearchUpdate}
+      value={searchTerm}
+      autoFocus
+      returnKeyType={"go"}
+    />
+  </Container>
+);
 
 SearchPresenter.propTypes = {
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  tvResults: PropTypes.array,
+  movieResults: PropTypes.array,
+  searchTerm: PropTypes.string,
+  handleSearchUpdate: PropTypes.func.isRequired
 };
 
 export default SearchPresenter;
