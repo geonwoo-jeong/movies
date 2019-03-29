@@ -6,5 +6,5 @@ iOS / Android Movie Discovery build with React Native.
 
 - [x] Movies
 - [x] TV Shows
-- [ ] Search
+- [x] Search
 - [ ] Detail
